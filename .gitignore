@@ -1,0 +1,39 @@
+# Dependencies
+node_modules/
+api/node_modules/
+
+# Build outputs
+dist/
+api/dist/
+
+# Environment variables — CRITICAL: keeps Upstash credentials off GitHub
+.env
+.env.local
+.env.*.local
+
+# Vite
+*.local
+
+# Azure SWA CLI
+.swa/
+
+# Editor
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# TypeScript
+*.tsbuildinfo
