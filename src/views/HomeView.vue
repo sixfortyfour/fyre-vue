@@ -1,5 +1,5 @@
 <template>
-  <main class="flex min-h-screen items-start justify-center px-4 pt-20">
+  <main class="min-h-screen flex items-center justify-center p-4">
     <MessageComposer />
   </main>
 </template>

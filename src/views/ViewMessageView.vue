@@ -1,5 +1,5 @@
 <template>
-  <main class="flex min-h-screen items-start justify-center px-4 pt-20">
+  <main class="min-h-screen flex items-center justify-center p-4">
     <MessageViewer :id="id" />
   </main>
 </template>
@@ -8,6 +8,5 @@
 import { useRoute } from 'vue-router'
 import MessageViewer from '@/components/MessageViewer.vue'
 
-const route = useRoute()
-const id = route.params.id as string
+const id = useRoute().params.id as string
 </script>
