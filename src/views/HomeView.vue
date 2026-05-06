@@ -1,5 +1,6 @@
 <template>
-  <main class="flex items-center justify-center p-4">
+  <main class="flex flex-col items-center justify-center gap-4 p-8">
+    <p class="text-xs tracking-widest uppercase text-sky-400">End-to-end encrypted</p>
     <MessageComposer />
   </main>
 </template>

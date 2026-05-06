@@ -1,8 +1,5 @@
 <template>
-  <div class="mx-auto w-full max-w-xl">
-    <div class="mb-8">
-      <AppLogo />
-    </div>
+  <div class="mx-auto w-full max-w-xl rounded-2xl border border-slate-700 bg-slate-900 p-6">
 
     <template v-if="!generatedLink">
       <form class="flex flex-col gap-5" @submit.prevent="submit">
@@ -11,11 +8,11 @@
             v-model="content"
             rows="7"
             placeholder="Write your secret message..."
-            class="w-full resize-none rounded-xl border border-gray-200 bg-white p-4 text-sm text-gray-900 outline-none placeholder:text-gray-400 focus:border-orange-400 focus:ring-2 focus:ring-orange-100"
+            class="w-full resize-none rounded-xl border border-slate-700 bg-slate-800 p-4 text-sm text-slate-100 outline-none placeholder:text-slate-500 focus:border-blue-500 focus:ring-2 focus:ring-blue-900"
           />
           <p
             class="text-right text-xs"
-            :class="isOverLimit ? 'text-red-500' : 'text-gray-400'"
+            :class="isOverLimit ? 'text-red-400' : 'text-slate-500'"
           >
             {{ charCount }} / {{ MAX_MESSAGE_LENGTH }}
           </p>
@@ -23,14 +20,14 @@
 
         <ExpirySelector v-model="ttl" />
 
-        <p v-if="error" class="rounded-lg bg-red-50 px-4 py-3 text-sm text-red-600">
+        <p v-if="error" class="rounded-lg border border-red-800 bg-red-950 px-4 py-3 text-sm text-red-400">
           {{ error }}
         </p>
 
         <button
           type="submit"
           :disabled="isLoading || isOverLimit || !content.trim()"
-          class="rounded-xl bg-orange-500 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-orange-600 disabled:cursor-not-allowed disabled:opacity-50"
+          class="rounded-xl bg-blue-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-50"
         >
           {{ isLoading ? 'Encrypting...' : 'Create link' }}
         </button>
@@ -39,19 +36,19 @@
 
     <template v-else>
       <div class="flex flex-col items-center gap-6 text-center">
-        <div class="flex flex-col gap-1">
-          <h2 class="text-xl font-semibold text-gray-900">Your link is ready</h2>
-          <p class="text-sm text-gray-500">Share it once. It will self-destruct after reading.</p>
+        <div class="flex flex-col gap-2">
+          <h2 class="font-display text-2xl font-bold text-white">Your link is ready</h2>
+          <p class="text-xs tracking-widest uppercase text-sky-400">Share it once. It will self-destruct after reading.</p>
         </div>
 
-        <div class="flex w-full items-center gap-2 rounded-xl border border-gray-200 bg-gray-50 px-4 py-3">
-          <span class="flex-1 truncate text-sm text-gray-700">{{ generatedLink }}</span>
+        <div class="flex w-full items-center gap-2 rounded-xl border border-slate-700 bg-slate-800 px-4 py-3">
+          <span class="flex-1 truncate text-sm text-slate-300">{{ generatedLink }}</span>
           <CopyLinkButton :link="generatedLink" />
         </div>
 
         <button
           type="button"
-          class="text-sm text-gray-500 underline underline-offset-2 hover:text-gray-700"
+          class="text-sm text-slate-400 underline underline-offset-2 hover:text-slate-200"
           @click="reset"
         >
           Create another

@@ -1,29 +1,29 @@
 <template>
   <main class="flex-1 flex items-start justify-center p-4 pt-12">
     <div class="max-w-xl w-full space-y-8">
-      <h1 class="text-2xl font-bold text-gray-900">About the project</h1>
-      <p class="text-gray-700">
+      <h1 class="font-display text-2xl font-bold text-white">About the project</h1>
+      <p class="text-slate-300">
         Azure Static Web App with API built with
-        <a href="https://vuejs.org/" class="text-orange-500 hover:text-orange-600 transition-colors">Vue.js</a>
+        <a href="https://vuejs.org/" class="text-blue-400 hover:text-blue-300 transition-colors">Vue.js</a>
         and
-        <a href="https://tailwindcss.com/" class="text-orange-500 hover:text-orange-600 transition-colors">Tailwind CSS</a>,
+        <a href="https://tailwindcss.com/" class="text-blue-400 hover:text-blue-300 transition-colors">Tailwind CSS</a>,
         with an
-        <a href="https://azure.microsoft.com/en-us/products/functions" class="text-orange-500 hover:text-orange-600 transition-colors">Azure Functions</a>
+        <a href="https://azure.microsoft.com/en-us/products/functions" class="text-blue-400 hover:text-blue-300 transition-colors">Azure Functions</a>
         TypeScript API.
         Built with help from
-        <a href="https://claude.ai/code" class="text-orange-500 hover:text-orange-600 transition-colors">Claude Code</a>.
+        <a href="https://claude.ai/code" class="text-blue-400 hover:text-blue-300 transition-colors">Claude Code</a>.
         The project is fully open source and available on
-        <a href="https://github.com/sixfortyfour/fyre" class="text-orange-500 hover:text-orange-600 transition-colors">GitHub</a>.
+        <a href="https://github.com/sixfortyfour/fyre-vue" class="text-blue-400 hover:text-blue-300 transition-colors">GitHub</a>.
       </p>
       <div>
-        <h2 class="text-sm font-medium text-gray-900 mb-4 text-center">Powered by</h2>
+        <h2 class="text-sm font-medium text-slate-400 mb-4 text-center">Powered by</h2>
         <a
           href="https://upstash.com/"
           target="_blank"
           aria-label="Upstash"
-          class="border border-gray-200 p-6 rounded-lg flex flex-col gap-4"
+          class="border border-slate-700 bg-slate-900 p-6 rounded-lg flex flex-col gap-4 hover:border-slate-600 transition-colors"
         >
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-10 text-[#050505]" viewBox="0 0 1631 472" fill="none" aria-label="Upstash Logo">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-10 text-slate-100" viewBox="0 0 1631 472" fill="none" aria-label="Upstash Logo">
             <g clip-path="url(#upstash_white_bg)">
               <path fill="#00C98D" d="M.422 412.975c78.105 78.104 204.738 78.104 282.843 0 78.104-78.105 78.104-204.738 0-282.843l-35.356 35.355c58.579 58.579 58.579 153.554 0 212.132-58.578 58.579-153.553 58.579-212.132 0L.422 412.975Z"></path>
               <path fill="#00C98D" d="M71.133 342.264c39.052 39.052 102.368 39.052 141.421 0 39.052-39.052 39.052-102.369 0-141.421l-35.355 35.355c19.526 19.526 19.526 51.184 0 70.711-19.527 19.526-51.185 19.526-70.711 0l-35.355 35.355ZM353.975 59.421c-78.105-78.105-204.738-78.105-282.843 0-78.105 78.105-78.105 204.738 0 282.843l35.355-35.355c-58.578-58.579-58.578-153.554 0-212.132 58.579-58.579 153.554-58.579 212.132 0l35.356-35.356Z"></path>

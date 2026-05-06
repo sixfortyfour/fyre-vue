@@ -4,9 +4,9 @@
       <AppLogo />
     </div>
 
-    <div v-if="isLoading" class="flex flex-col items-center gap-3 py-12 text-gray-500">
+    <div v-if="isLoading" class="flex flex-col items-center gap-3 py-12 text-slate-400">
       <svg
-        class="h-6 w-6 animate-spin text-orange-500"
+        class="h-6 w-6 animate-spin text-blue-500"
         viewBox="0 0 24 24"
         fill="none"
         aria-hidden="true"
@@ -22,28 +22,28 @@
     </div>
 
     <div v-else-if="message" class="flex flex-col gap-4">
-      <div class="rounded-xl border border-gray-200 bg-white p-6">
-        <p class="whitespace-pre-wrap text-sm leading-relaxed text-gray-900">{{ message.content }}</p>
+      <div class="rounded-xl border border-slate-700 bg-slate-900 p-6">
+        <p class="whitespace-pre-wrap text-sm leading-relaxed text-slate-200">{{ message.content }}</p>
       </div>
-      <p class="text-center text-xs text-gray-400">
+      <p class="text-center text-xs text-slate-500">
         This message has now been deleted and cannot be viewed again.
       </p>
     </div>
 
-    <div v-else-if="isBurned" class="rounded-xl bg-amber-50 px-6 py-10 text-center">
-      <p class="text-sm font-medium text-amber-700">This message has already been read.</p>
+    <div v-else-if="isBurned" class="rounded-xl border border-amber-800 bg-amber-950 px-6 py-10 text-center">
+      <p class="text-sm font-medium text-amber-400">This message has already been read.</p>
     </div>
 
-    <div v-else-if="isExpired" class="rounded-xl bg-gray-50 px-6 py-10 text-center">
-      <p class="text-sm font-medium text-gray-600">This message has expired.</p>
+    <div v-else-if="isExpired" class="rounded-xl border border-slate-700 bg-slate-900 px-6 py-10 text-center">
+      <p class="text-sm font-medium text-slate-400">This message has expired.</p>
     </div>
 
-    <div v-else-if="isNotFound" class="rounded-xl bg-gray-50 px-6 py-10 text-center">
-      <p class="text-sm font-medium text-gray-600">This message does not exist.</p>
+    <div v-else-if="isNotFound" class="rounded-xl border border-slate-700 bg-slate-900 px-6 py-10 text-center">
+      <p class="text-sm font-medium text-slate-400">This message does not exist.</p>
     </div>
 
-    <div v-else-if="error" class="rounded-xl bg-red-50 px-6 py-10 text-center">
-      <p class="text-sm font-medium text-red-600">Something went wrong. Please try again.</p>
+    <div v-else-if="error" class="rounded-xl border border-red-800 bg-red-950 px-6 py-10 text-center">
+      <p class="text-sm font-medium text-red-400">Something went wrong. Please try again.</p>
     </div>
   </div>
 </template>

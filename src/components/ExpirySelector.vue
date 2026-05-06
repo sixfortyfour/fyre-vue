@@ -7,8 +7,8 @@
       :class="[
         'rounded-full px-4 py-1.5 text-sm font-medium transition-colors',
         modelValue === option.value
-          ? 'bg-orange-500 text-white'
-          : 'bg-gray-100 text-gray-700 hover:bg-gray-200',
+          ? 'bg-blue-600 text-white'
+          : 'bg-slate-800 text-slate-300 hover:bg-slate-700',
       ]"
       @click="$emit('update:modelValue', option.value)"
     >

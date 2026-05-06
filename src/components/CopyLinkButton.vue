@@ -1,7 +1,7 @@
 <template>
   <button
     type="button"
-    class="flex items-center gap-2 rounded-lg bg-orange-500 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-orange-600 active:bg-orange-700"
+    class="flex items-center gap-2 rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-blue-700 active:bg-blue-800"
     @click="copy"
   >
     <span class="transition-all duration-150">{{ copied ? 'Copied!' : 'Copy link' }}</span>
