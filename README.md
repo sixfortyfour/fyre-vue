@@ -1,54 +1,59 @@
-# fyre-vue
+# fyre
 
-This template should help get you started developing with Vue 3 in Vite.
+[![Deploy to Azure SWA](https://github.com/sixfortyfour/fyre-vue/actions/workflows/azure-swa.yml/badge.svg)](https://github.com/sixfortyfour/fyre-vue/actions/workflows/azure-swa.yml)
 
-## Recommended IDE Setup
+Burn-after-reading message app. Send a secret — it self-destructs after the recipient reads it.
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Stack
 
-## Recommended Browser Setup
+- Vue 3 + TypeScript + Vite (frontend)
+- Azure Functions v4 TypeScript (API)
+- Upstash Redis (storage)
+- Azure Static Web Apps (hosting)
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+## Local development
 
-## Type Support for `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
+Install dependencies:
 
 ```sh
 npm install
+cd api && npm install && cd ..
 ```
 
-### Compile and Hot-Reload for Development
+Start the Vite dev server (frontend only, no API):
 
 ```sh
 npm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
+Start the full stack with the SWA CLI (requires Node 20, Azure Functions Core Tools v4):
 
 ```sh
-npm run build
+swa start --config swa-cli.config.json
 ```
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
+The full stack runs at `http://localhost:4280`.
 
-```sh
-npm run test:unit
+## Environment variables
+
+Create `.env.local` in the repo root for local development:
+
+```
+UPSTASH_REDIS_REST_URL=https://<your-instance>.upstash.io
+UPSTASH_REDIS_REST_TOKEN=<your-token>
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+For Azure deployment, add these as application settings in the Static Web App resource (not as GitHub secrets — the SWA action copies `api/local.settings.json` values automatically, or you set them in the Azure portal).
 
-```sh
-npm run lint
-```
+The `AZURE_SWA_TOKEN` GitHub secret must be set to the deployment token from the Azure portal (Static Web Apps > Manage deployment token).
+
+## Commands
+
+| Command | Description |
+|---|---|
+| `npm run dev` | Start Vite dev server |
+| `npm run build` | Type-check and build frontend |
+| `npm run type-check` | Run vue-tsc |
+| `npm run test:unit` | Run Vitest unit tests |
+| `npm run lint` | Run oxlint + eslint |
+| `cd api && npm run build` | Compile API TypeScript |
