@@ -1,8 +1,5 @@
 <template>
   <div class="mx-auto w-full max-w-xl">
-    <div class="mb-8">
-      <AppLogo />
-    </div>
 
     <div v-if="isLoading" class="flex flex-col items-center gap-3 py-12 text-slate-400">
       <svg
