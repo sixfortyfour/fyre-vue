@@ -61,7 +61,6 @@
 <script setup lang="ts">
 import { useCreateMessage } from '@/composables/useCreateMessage'
 import { MAX_MESSAGE_LENGTH } from '@/constants'
-import AppLogo from './AppLogo.vue'
 import ExpirySelector from './ExpirySelector.vue'
 import CopyLinkButton from './CopyLinkButton.vue'
 

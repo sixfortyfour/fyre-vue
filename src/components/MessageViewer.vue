@@ -48,7 +48,6 @@
 <script setup lang="ts">
 import { onMounted } from 'vue'
 import { useViewMessage } from '@/composables/useViewMessage'
-import AppLogo from './AppLogo.vue'
 
 const props = defineProps<{ id: string }>()
 
