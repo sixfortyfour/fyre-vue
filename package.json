@@ -20,6 +20,7 @@
     "vue-router": "^5.0.4"
   },
   "devDependencies": {
+    "@azure/static-web-apps-cli": "^2.0.9",
     "@tailwindcss/vite": "^4.2.4",
     "@tsconfig/node24": "^24.0.4",
     "@types/jsdom": "^28.0.1",
@@ -44,6 +45,9 @@
     "vite-plugin-vue-devtools": "^8.1.1",
     "vitest": "^4.1.4",
     "vue-tsc": "^3.2.6"
+  },
+  "optionalDependencies": {
+    "@rolldown/binding-win32-x64-msvc": "^1.0.0-rc.18"
   },
   "engines": {
     "node": "^20.19.0 || >=22.12.0"
