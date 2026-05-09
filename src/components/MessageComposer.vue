@@ -5,11 +5,14 @@
       <form class="flex flex-col gap-5" @submit.prevent="submit">
         <div class="flex flex-col gap-1">
           <textarea
-            v-model="content"
+            :value="content"
             rows="7"
             placeholder="Write your secret message..."
             class="w-full resize-none rounded-xl border border-slate-700 bg-slate-800 p-4 text-sm text-slate-100 outline-none placeholder:text-slate-500 focus:border-blue-500 focus:ring-2 focus:ring-blue-900"
-          />
+            @input="content = ($event.target as HTMLTextAreaElement).value"
+            @change="content = ($event.target as HTMLTextAreaElement).value"
+            @compositionend="content = ($event.target as HTMLTextAreaElement).value"
+          ></textarea>
           <p
             class="text-right text-xs"
             :class="isOverLimit ? 'text-red-400' : 'text-slate-500'"
