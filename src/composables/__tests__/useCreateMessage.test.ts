@@ -23,7 +23,7 @@ describe('useCreateMessage', () => {
 
     await submit()
 
-    expect(generatedLink.value).toBe('https://fyre.app/view/abc123')
+    expect(generatedLink.value).toMatch(/^https:\/\/fyre\.app\/view\/abc123#.+/)
   })
 
   it('sets error when API returns 500', async () => {

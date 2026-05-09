@@ -39,6 +39,10 @@
       <p class="text-sm font-medium text-slate-400">This message does not exist.</p>
     </div>
 
+    <div v-else-if="isDecryptionError" class="rounded-xl border border-red-800 bg-red-950 px-6 py-10 text-center">
+      <p class="text-sm font-medium text-red-400">Decryption failed. The link may be incomplete or invalid.</p>
+    </div>
+
     <div v-else-if="error" class="rounded-xl border border-red-800 bg-red-950 px-6 py-10 text-center">
       <p class="text-sm font-medium text-red-400">Something went wrong. Please try again.</p>
     </div>
@@ -51,8 +55,9 @@ import { useViewMessage } from '@/composables/useViewMessage'
 
 const props = defineProps<{ id: string }>()
 
-const { message, error, isLoading, isBurned, isExpired, isNotFound, fetchMessage } =
-  useViewMessage(props.id)
+const key = window.location.hash.slice(1)
+const { message, error, isLoading, isBurned, isExpired, isNotFound, isDecryptionError, fetchMessage } =
+  useViewMessage(props.id, key)
 
 onMounted(fetchMessage)
 </script>

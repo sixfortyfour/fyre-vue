@@ -3,7 +3,7 @@ import { nanoid } from 'nanoid'
 import { redis } from '../redis'
 
 const VALID_TTLS = new Set(['view-once', '1h'])
-const MAX_CONTENT_LENGTH = 10_000
+const MAX_CONTENT_LENGTH = 20_000
 
 interface StoredMessage {
   content: string
@@ -30,7 +30,7 @@ export async function createMessage(
     return { status: 400, jsonBody: { code: 'BAD_REQUEST', message: 'content is required.' } }
   }
   if (content.length > MAX_CONTENT_LENGTH) {
-    return { status: 400, jsonBody: { code: 'BAD_REQUEST', message: 'content exceeds 10 000 characters.' } }
+    return { status: 400, jsonBody: { code: 'BAD_REQUEST', message: 'content exceeds 20 000 characters.' } }
   }
   if (!ttl || typeof ttl !== 'string' || !VALID_TTLS.has(ttl)) {
     return { status: 400, jsonBody: { code: 'BAD_REQUEST', message: "ttl must be 'view-once' or '1h'." } }

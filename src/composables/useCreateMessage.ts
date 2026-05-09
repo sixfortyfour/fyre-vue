@@ -2,6 +2,7 @@ import { ref, computed } from 'vue'
 import type { Ref, ComputedRef } from 'vue'
 import type { MessageTtl, CreateMessageResponse, ApiError } from '@/types'
 import { MAX_MESSAGE_LENGTH } from '@/constants'
+import { generateKey, exportKey, encrypt } from '@/utils/crypto'
 
 export function useCreateMessage(): {
   content: Ref<string>
@@ -31,10 +32,13 @@ export function useCreateMessage(): {
     error.value = null
 
     try {
+      const key = await generateKey()
+      const ciphertext = await encrypt(content.value, key)
+
       const res = await fetch('/api/messages', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ content: content.value, ttl: ttl.value }),
+        body: JSON.stringify({ content: ciphertext, ttl: ttl.value }),
       })
 
       if (!res.ok) {
@@ -44,7 +48,8 @@ export function useCreateMessage(): {
       }
 
       const data: CreateMessageResponse = await res.json()
-      generatedLink.value = `${window.location.origin}/view/${data.id}`
+      const keyB64 = await exportKey(key)
+      generatedLink.value = `${window.location.origin}/view/${data.id}#${keyB64}`
     } catch {
       error.value = 'Network error. Please try again.'
     } finally {

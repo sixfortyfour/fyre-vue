@@ -16,6 +16,6 @@ export interface ViewMessageResponse {
 }
 
 export interface ApiError {
-  code: 'NOT_FOUND' | 'ALREADY_BURNED' | 'EXPIRED' | 'SERVER_ERROR'
+  code: 'NOT_FOUND' | 'ALREADY_BURNED' | 'EXPIRED' | 'SERVER_ERROR' | 'DECRYPTION_ERROR'
   message: string
 }
